@@ -10,6 +10,10 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.dark().copyWith(
+        scaffoldBackgroundColor: Colors.grey.shade900,
+        backgroundColor: Colors.grey.shade800,
+      ),
       debugShowCheckedModeBanner: true,
       home: BlocProvider(
         create: (context) => StatesdataBloc(repository: StateRepositoryImpl()),

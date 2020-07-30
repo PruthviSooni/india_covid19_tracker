@@ -1,8 +1,7 @@
 import 'package:covid19_stats/bloc/statesdata_bloc.dart';
+import 'package:covid19_stats/ui/widgets/Home_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import 'file:///C:/Projects/FlutterProjects/COVID-19_India_stats/covid19_stats/lib/ui/widgets/Details_Stats.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -25,10 +24,11 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text('cvoid-19'),
       ),
-      body: Container(
-        child: BlocBuilder<StatesdataBloc, StatesdataState>(
-          // ignore: missing_return
-          builder: (context, state) {
+      body: BlocBuilder<StatesdataBloc, StatesdataState>(
+        builder: (context, state) {
+          if (state == null) {
+            return CircularProgressIndicator();
+          } else {
             if (state is StatesdataLoading) {
               return Center(
                 child: CircularProgressIndicator(),
@@ -39,10 +39,11 @@ class _HomeState extends State<Home> {
               );
             } else if (state is StatesdataError) {
               print(state.msg.toString());
-              return Center(child: Text(state.msg));
+              return Text(state.msg);
             }
-          },
-        ),
+            return Container();
+          }
+        },
       ),
     );
   }
