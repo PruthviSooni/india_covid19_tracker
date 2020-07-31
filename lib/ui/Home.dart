@@ -22,7 +22,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('cvoid-19'),
+        title: Text('India States COVID-19 Stats'),
       ),
       body: BlocBuilder<StatesdataBloc, StatesdataState>(
         builder: (context, state) {
