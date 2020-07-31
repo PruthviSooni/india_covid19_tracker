@@ -1,8 +1,10 @@
 import 'package:covid19_stats/models/statesModel.dart';
+import 'package:covid19_stats/ui/widgets/container_template.dart';
 import 'package:flutter/material.dart';
 
 import '../Details.dart';
 
+// Template class to show the list of states on the Home page
 class StatesStats extends StatelessWidget {
   const StatesStats({
     Key key,
@@ -28,7 +30,7 @@ class StatesStats extends StatelessWidget {
         );
       },
       borderRadius: BorderRadius.circular(10),
-      hoverColor: Colors.grey,
+      hoverColor: Colors.grey.shade800,
       child: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
@@ -42,12 +44,11 @@ class StatesStats extends StatelessWidget {
               height: 5,
             ),
             Wrap(
+              spacing: 2,
+              runSpacing: 8,
               children: [
-                Container(
-                  padding: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                      color: Colors.orange.shade400.withOpacity(.3),
-                      borderRadius: BorderRadius.circular(15)),
+                ContainerTemplate(
+                  color: Colors.orange.shade400.withOpacity(.2),
                   child: Text(
                     "Confirmed: ${stateModel[index].confirmed}",
                     style:
@@ -57,15 +58,22 @@ class StatesStats extends StatelessWidget {
                 SizedBox(
                   width: 5,
                 ),
-                Container(
-                  padding: EdgeInsets.all(5),
-                  decoration: BoxDecoration(
-                      color: Colors.green.shade400.withOpacity(.2),
-                      borderRadius: BorderRadius.circular(15)),
+                ContainerTemplate(
+                  color: Colors.green.shade400.withOpacity(.2),
                   child: Text(
                     'Recovered: ${stateModel[index].recovered}',
                     style:
                         TextStyle(color: Colors.green.shade300, fontSize: 18),
+                  ),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                ContainerTemplate(
+                  color: Colors.red.shade500.withOpacity(.3),
+                  child: Text(
+                    'Recovered: ${stateModel[index].deaths}',
+                    style: TextStyle(color: Colors.red.shade200, fontSize: 18),
                   ),
                 ),
               ],

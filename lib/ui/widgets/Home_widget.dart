@@ -17,13 +17,15 @@ class StatesPage extends StatelessWidget {
       itemBuilder: (context, index) {
         return Card(
           color: Theme.of(context).backgroundColor,
-          shadowColor: Colors.grey.shade800,
+          shadowColor: Colors.grey.shade500,
           elevation: 2,
           margin: EdgeInsets.all(5),
           shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
-              side: BorderSide(color: Colors.grey.shade500, width: .9)),
+              side: BorderSide(color: Colors.grey.shade500, width: .2)),
           borderOnForeground: true,
+//          passing data and index of the specific location
+//          where the user tap in listView and textStyle also
           child: StatesStats(
             stateModel: stateModel,
             textStyle: textStyle,

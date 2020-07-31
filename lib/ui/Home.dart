@@ -25,26 +25,21 @@ class _HomeState extends State<Home> {
         title: Text('India States COVID-19 Stats'),
       ),
       body: BlocBuilder<StatesdataBloc, StatesdataState>(
-        builder: (context, state) {
-          if (state == null) {
-            return CircularProgressIndicator();
-          } else {
-            if (state is StatesdataLoading) {
-              return Center(
-                child: CircularProgressIndicator(),
-              );
-            } else if (state is StatesdataLoaded) {
-              return StatesPage(
-                stateModel: state.list,
-              );
-            } else if (state is StatesdataError) {
-              print(state.msg.toString());
-              return Text(state.msg);
-            }
-            return Container();
-          }
-        },
-      ),
+          builder: (context, state) {
+        if (state is StatesdataLoading) {
+          return Center(
+            child: CircularProgressIndicator(),
+          );
+        } else if (state is StatesdataLoaded) {
+          return StatesPage(
+            stateModel: state.list,
+          );
+        } else if (state is StatesdataError) {
+          print(state.msg.toString());
+          return Text(state.msg);
+        }
+        return Container();
+      }),
     );
   }
 }
