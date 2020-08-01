@@ -18,6 +18,7 @@ class App extends StatelessWidget {
         backgroundColor: Colors.grey.shade800,
       ),
       debugShowCheckedModeBanner: false,
+//      connect the Bloc to the UI
       home: BlocProvider(
         create: (context) => StatesdataBloc(repository: StateRepositoryImpl()),
         child: Home(),

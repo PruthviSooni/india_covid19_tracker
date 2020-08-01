@@ -14,6 +14,7 @@ class _HomeState extends State<Home> {
   @override
   void initState() {
     super.initState();
+//    added event to the bloc in init state
     stateBloc = BlocProvider.of<StatesdataBloc>(context);
     stateBloc.add(FetchDataEvent());
   }
@@ -24,6 +25,7 @@ class _HomeState extends State<Home> {
       appBar: AppBar(
         title: Text('India States COVID-19 Stats'),
       ),
+//      assign a builder to check the state of the bloc using BlocBuilder
       body: BlocBuilder<StatesdataBloc, StatesdataState>(
           builder: (context, state) {
         if (state is StatesdataLoading) {
